@@ -1,0 +1,82 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+    vertical-align: baseline;
+}
+
+.sideitem{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    padding-left: 30px;
+}
+
+li:hover{
+    text-decoration: underline black;
+}
+
+.sidebar{
+    margin-top: 25px;
+    margin-left: 0px;
+    padding: 0px;
+    height: 95vh;
+    border-right: solid black;
+}
+.ul_sidebar{
+    height: 400px;
+}
+
+.ul_sidebar>li{
+    padding-bottom: 20px;
+}
+
+
+.brand-logo{
+    margin-left: 10px;
+}
+
+/*AUTH*/
+.auth-content-inner{
+    margin-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 10px;
+}
+.mt-2{
+    margin-top: 40px;
+}
+
+input::placeholder {
+    color: rgb(48, 48, 48);
+}
+
+.row .col.s9 {
+    width: 75%;
+}
+
+.error{
+    color: red;
+}
+
+.reg_form{
+    padding: 0px 100px;
+}
+
+@media (max-width: 1200px)
+{
+    .sidebar{
+        display: none;
+    }
+    .col{
+        float: none;
+    }
+    .row .col.s9 {
+        width: 100%;
+    }
+}

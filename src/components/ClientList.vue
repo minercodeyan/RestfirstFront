@@ -12,6 +12,7 @@
 </div>
 </template>
 <script>
+
 export default {
   name: 'ClientList',
   props:{
@@ -21,24 +22,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.main{
-  padding-top: 100px;
-  padding-bottom: 300px;
-  flex-grow: 8;
-}
-.client{
-  margin: 10px;
-  padding: 10px;
-  border: solid;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.client-row{
-  margin: 0px 150px
-}
-</style>

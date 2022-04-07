@@ -1,100 +1,80 @@
 <template>
   <div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-    <div id="myDropdown" class="dropdown-content">
-      <input v-bind:value="name" v-on:input="name=$event.target.value" type="text" placeholder="имя">
-      <input v-bind:value="surname" v-on:input="surname=$event.target.value" type="text" placeholder="фамилия">
-      <input v-bind:value="patronymic" v-on:input="patronymic=$event.target.value" type="text" placeholder="что-то">
-      <input v-bind:value="dateOfBirth" v-on:input="dateOfBirth=$event.target.value" type="date" placeholder="дата рождения">
-      <button id="btnDrop" type="submit" v-on:click="save">lol</button>
+    <button v-on:click="dropBtn" class="dropbtn">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content" @submit.prevent>
+      <input v-model="client.name" :class="(v$.client.name.$error) ? 'invalid':''"
+             type="text"
+             placeholder="имя">
+      <input v-model="client.surname" type="text" placeholder="фамилия" :class="(v$.client.surname.$error) ? 'invalid':''">
+      <input v-model="client.patronymic" type="text" placeholder="что-то">
+      <input v-model="client.dateOfBirth" type="date" placeholder="дата рождения">
+      <button class="btn" id="btnDrop" v-on:click="save">lol</button>
     </div>
   </div>
 </template>
-
 <script>
-
-import axios from "axios";
-
+import indexApi from "@/api/indexApi";
+import useVuelidate from '@vuelidate/core'
+import {required, minLength} from '@vuelidate/validators'
 
 export default {
-
-  props: {
-    clients: {
-      type: Array,
-    }
+  setup() {
+    return {v$: useVuelidate()}
   },
+  name: 'form-client',
   data() {
     return {
+      client:{
       name: '',
       surname: '',
       patronymic: '',
-      dateOfBirth: ''
-    }
+      dateOfBirth: '',
+    }}
   },
-  name: 'form-client',
+  validations: {
+    client: {
+      name: {required, minLength: minLength(3)},
+      surname: {required, minLength: minLength(3)}
+    },
+  },
   methods: {
-    save: function () {
-      axios.post('http://localhost:9090/api/v1/clients', {
-        "name": this.name,
-        "surname": this.surname,
-        "patronymic": this.patronymic,
-        "dateOfBirth": this.dateOfBirth
-      },{timeout:2}).then(function (response) {
-        console.log(response);
-      }).catch(function (error) {
+    async save() {
+      const btn = document.getElementById("btnDrop")
+      btn.onclick = function () {
+        this.disabled = true;
+        setTimeout(() => {
+          this.disabled = false;
+          this.classList.remove("disabled")
+        }, 1000);
+      }
+      this.v$.$touch();
+      if (this.v$.$errors.length > 0) {
+       return
+      }
+      this.v$.$reset()
+      try {
+        await indexApi.clientS.saveClient(this.client),
+        this.$emit("create")
+      }
+      catch(error) {
         console.log(error);
-      });
-          this.name = "",
-          this.surname = "",
-          this.patronymic = "",
-          this.dateOfBirth = ""
+      }
+          this.client.name = ""
+          this.client.surname = "",
+          this.client.patronymic = "",
+          this.client.dateOfBirth = ""
+    },
+
+    dropBtn() {
+      let d = document.getElementById("myDropdown")
+      d.classList.toggle("show")
     }
+
+
   }
 }
 </script>
-
 <style scoped>
-.dropbtn {
-  background-color: #3498DB;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  margin-top : 100px;
-  margin-left: 40px;
-  padding-right: 100px;
-  border-right: 2px solid gray;
-}
-
-.dropdown-content {
-  display: none;
-  position: relative;
-  min-width: 160px;
-  overflow: auto;
-  z-index: 1;
-}
-
-.dropdown-content input {
-  color: black;
-  margin: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {
-  background-color: #ddd;
-}
-
 .show {
   display: block;
 }
