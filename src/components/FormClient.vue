@@ -1,7 +1,5 @@
 <template>
-  <div class="dropdown">
-    <button v-on:click="dropBtn" class="dropbtn">Dropdown</button>
-    <div id="myDropdown" class="dropdown-content" @submit.prevent>
+    <div @submit.prevent>
       <input v-model="client.name" :class="(v$.client.name.$error) ? 'invalid':''"
              type="text"
              placeholder="имя">
@@ -10,7 +8,6 @@
       <input v-model="client.dateOfBirth" type="date" placeholder="дата рождения">
       <button class="btn" id="btnDrop" v-on:click="save">lol</button>
     </div>
-  </div>
 </template>
 <script>
 import indexApi from "@/api/indexApi";
@@ -52,6 +49,7 @@ export default {
        return
       }
       this.v$.$reset()
+      console.log(1)
       try {
         await indexApi.clientS.saveClient(this.client),
         this.$emit("create")
@@ -65,17 +63,6 @@ export default {
           this.client.dateOfBirth = ""
     },
 
-    dropBtn() {
-      let d = document.getElementById("myDropdown")
-      d.classList.toggle("show")
-    }
-
-
   }
 }
 </script>
-<style scoped>
-.show {
-  display: block;
-}
-</style>

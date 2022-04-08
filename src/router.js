@@ -1,23 +1,45 @@
 import {createRouter, createWebHistory} from "vue-router";
-import LoginPage from "@/pages/loginPage";
+import AuthPage from "@/pages/AuthPage";
+import HomePage from "@/pages/HomePage";
+import TimeTablePage from "@/pages/TimeTablePage";
 import ClientPage from "@/pages/ClientPage";
-import RegPage from "@/pages/RegPage";
+import ProfilePage from "@/pages/ProfilePage";
 const routes = [
     {
         path: "/",
         name: "Home",
         meta:{layout:"main"},
-        component: ClientPage
+        component: HomePage
+    },
+    {
+        path: "/timetable/:id",
+        name: "timetable",
+        meta:{layout:"main"},
+        component: TimeTablePage
     },
     {
         path: "/login",
         name: "login",
-        component: LoginPage
+        meta:{layout:"main"},
+        component: AuthPage
     },
     {
         path: "/registration",
         name: "registration",
-        component: RegPage
+        meta:{layout:"main"},
+        component: AuthPage
+    },
+    {
+        path: "/lol",
+        name: "lol",
+        meta:{layout:"main"},
+        component: ClientPage
+    },
+    {
+        path: "/profile/main",
+        name: "profile-main",
+        meta:{layout:"main"},
+        component: ProfilePage
     },
 ];
 

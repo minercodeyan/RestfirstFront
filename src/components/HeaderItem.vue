@@ -3,16 +3,23 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="badges.html">User</a></li>
-        <li><a href="collapsible.html">Logout</a></li>
+        <li><router-link v-if="username" to="/profile/main" v-text="username"></router-link></li>
+        <li><router-link v-if="username===null" to="/login">Войти</router-link></li>
       </ul>
     </div>
   </nav>
 </template>
 
 <script>
+
 export default {
-  name: "HeaderItem"
+  data(){
+    return {username: null}
+  },
+  name: "HeaderItem",
+  mounted() {
+
+  }
 }
 </script>
 

@@ -1,6 +1,5 @@
 <template>
 <div class="main">
-<!--  <div><div v-for="client in clients" :key="client.id">{{client.id}}</div></div>-->
   <div class="client-row">
     <div class="client" v-for="client in clients" :key="client.id">
       {{client.id}}

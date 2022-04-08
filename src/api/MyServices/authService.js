@@ -1,19 +1,15 @@
-import instance from "@/api/instance";
 
-export default function (){
+export default function (instance){
     return{
         signUp(user){
-          return instance.post('/singup',{
-                username: user.username,
-                email: user.email,
-                password: user.password})
+          return instance.post('/auth/signup',user)
         },
         signIn(user){
-            return instance.post('/singin',{
-                username: user.username,
-                password: user.password})
+            return instance.post('/auth/signin',user)
                 .then(response=>{
-                    if(response.data.accessToken){
+                    console.log(response)
+                    if(response.data.token){
+                        console.log(1)
                         localStorage.setItem('user',JSON.stringify(response.data))}
                     return response.data
                 })
@@ -21,7 +17,6 @@ export default function (){
         logout(){
             localStorage.removeItem('user')
         }
-
     }
 
 }

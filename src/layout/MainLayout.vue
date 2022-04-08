@@ -1,11 +1,10 @@
 <template>
-  <HeaderItem/>
+  <header-item/>
   <div class="row">
-    <SideBar/>
+    <side-bar/>
     <router-view/>
   </div>
 </template>
-
 <script>
 import HeaderItem from "@/components/HeaderItem";
 import SideBar from "@/components/SideBar";

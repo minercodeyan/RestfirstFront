@@ -12,7 +12,6 @@
 import FormClient from "@/components/FormClient";
 import ClientList from "@/components/ClientList";
 import indexApi from "@/api/indexApi";
-
 export default {
   name: "ClientPage",
   components: {

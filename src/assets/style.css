@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     border: 0;
@@ -7,40 +8,43 @@ html, body {
     vertical-align: baseline;
 }
 
-.sideitem{
+
+.side_item {
     text-decoration: none;
     color: black;
     font-size: 30px;
     padding-left: 30px;
 }
 
-li:hover{
+.ul_sidebar>li:hover {
     text-decoration: underline black;
 }
 
-.sidebar{
+.sidebar {
     margin-top: 25px;
     margin-left: 0px;
     padding: 0px;
     height: 95vh;
     border-right: solid black;
 }
-.ul_sidebar{
+
+.ul_sidebar {
     height: 400px;
 }
 
-.ul_sidebar>li{
+.ul_sidebar>li {
     padding-bottom: 20px;
+    font-size: 10px;
 }
 
 
-.brand-logo{
+.brand-logo {
     margin-left: 10px;
 }
 
 /*AUTH*/
-.auth-content-inner{
-    margin-top: 100px;
+.auth-content-inner {
+    margin: 100px 200px;
     padding-bottom: 100px;
     display: flex;
     flex-direction: column;
@@ -48,35 +52,139 @@ li:hover{
     align-items: center;
     border-radius: 10px;
 }
-.mt-2{
+
+.mt-2 {
     margin-top: 40px;
 }
 
 input::placeholder {
-    color: rgb(48, 48, 48);
+    color: black;
+    opacity: 50%;
+}
+textarea::placeholder {
+    color: black;
+    opacity: 50%;
 }
 
-.row .col.s9 {
+.row .col.s9{
     width: 75%;
 }
 
-.error{
-    color: red;
-}
-
-.reg_form{
+.reg_form {
     padding: 0px 100px;
 }
 
-@media (max-width: 1200px)
-{
-    .sidebar{
+@media (max-width: 1200px) {
+    .sidebar {
         display: none;
     }
-    .col{
+    .col {
         float: none;
     }
-    .row .col.s9 {
+    .row .col.s9{
         width: 100%;
     }
+}
+
+/* home============================================================================*/
+
+.home_content {
+    margin: 50px;
+}
+
+.home_info {
+    margin-top: 50px;
+}
+
+.home_btn {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.subject_card {
+    margin: 10px 30px 10px 0px;
+    padding: 10px;
+    border: solid 1px;
+    border-radius: 6px;
+}
+
+.active {
+    background-color: #b2dfdb;
+}
+
+.filter {
+    width: 50%;
+    margin: 30px 0px;
+}
+/*profile====================================================================*/
+.profile {
+    margin: 100px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile_aside{
+    width: 20%;
+    height: 300px;
+}
+
+.profile_main{
+    width: 80%;
+    padding: 30px;
+    margin: 0px 20px;
+}
+
+.col>img{
+    border: rgb(255, 255, 255) solid;
+    border-radius: 10px;
+}
+
+.profile_aside_item{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    color: black;
+}
+
+.profile_aside_item:hover{
+    background-color: #80cbc4;;
+}
+
+.active_link{
+    background-color: #4db6ac;
+    border-left: black solid;
+}
+
+.active_link:hover{
+    background-color: #4db6ac;
+}
+
+textarea[name="details"] {
+    height: 60px;
+    resize: none;
+    margin-top: 20px;
+    border: #00796b solid;
+    border-radius: 10px;
+}
+
+.profile_name{
+    font-weight: 1000;
+    padding: 20px 0px;
+}
+
+/*errors==============================*/
+
+.error_alert{
+    margin: 10px 30px 10px 0px;
+    padding: 10px;
+    border: #ef5350 solid;
+    border-radius: 6px;
+    background: #e57373;
+    text-align: center;
+    color: white;
+}
+
+.error {
+    color: red;
 }
