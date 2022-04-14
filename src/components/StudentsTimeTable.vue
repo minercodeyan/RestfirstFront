@@ -2,7 +2,7 @@
   <table>
     <thead>
     <tr>
-      <th>Время</th>
+      <th></th>
       <th>Понедельник</th>
       <th>Вторник</th>
       <th>Среда</th>
@@ -11,112 +11,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>12:10-20:10</td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-      <td>
-        <div class="subject_card">Эмим(ЛК)<br>224-2</div>
-      </td>
-    </tr>
-    <tr>
-      <td>12:10-20:10</td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-    </tr>
-    <tr>
-      <td>12:10-200:10</td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-    </tr>
-    <tr>
-      <td>12:10-20:10</td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-    </tr>
-    <tr>
-      <td>12:10-20:10</td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-    </tr>
-    <tr>
-      <td>12:10-20:10</td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card">Занятий нет</div>
-      </td>
-      <td>
-        <div class="subject_card active">Эмим(ЛК)<br>224-2</div>
+    <tr v-for="(set,name) in studentsTimeTable" :key="set.values()">
+      <td>1{{name}}:30</td>
+      <td v-for="(item, index) in set" :key="index">
+        <div class="subject_card" :class="item.name==='нет занятий'?'':'active'">{{item.name}}<br>{{item.type}}</div>
       </td>
     </tr>
     </tbody>
@@ -125,7 +23,15 @@
 
 <script>
 export default {
-  name: "StudentsTimeTable"
+  name: "StudentsTimeTable",
+  props:{
+    studentsTimeTable: {
+      type: Object,
+    }
+  },
+  watch:{
+    
+  }
 }
 </script>
 

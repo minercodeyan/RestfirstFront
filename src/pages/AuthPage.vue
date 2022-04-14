@@ -1,7 +1,7 @@
 <template>
   <div class="col s9">
     <div class="auth-content-inner teal lighten-4">
-      <login-form v-if="this.$router.currentRoute.value.fullPath==='/login'"/>
+      <login-form v-if="this.$router.currentRoute.value.fullPath==='/login'" @cre="$emit('update')"/>
       <registration-form v-if="this.$router.currentRoute.value.fullPath==='/registration'"/>
     </div>
   </div>
@@ -16,9 +16,8 @@ export default {
   components: {LoginForm, RegistrationForm},
   created() {
     if(localStorage.getItem('user')){
-      console.log(localStorage.getItem('user'))
       router.push({ name: 'profile-main'});
     }
-  }
+  },
 }
 </script>

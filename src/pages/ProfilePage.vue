@@ -1,7 +1,7 @@
 <template>
   <div class="col s9">
     <div class="profile">
-      <profile-aside/>
+      <profile-aside @cre="$emit('update')"/>
       <profile-main/>
     </div>
   </div>

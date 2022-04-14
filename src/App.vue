@@ -12,7 +12,7 @@ export default {
      return 'main-layout'
     }
   },
-  components:{MainLayout}
+  components:{MainLayout},
 }
 </script>
 

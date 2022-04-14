@@ -19,6 +19,10 @@ export default {
     return {v$: useVuelidate()}
   },
   name: 'form-client',
+  props:{
+    filter: {
+    }
+  },
   data() {
     return {
       client:{
@@ -49,7 +53,6 @@ export default {
        return
       }
       this.v$.$reset()
-      console.log(1)
       try {
         await indexApi.clientS.saveClient(this.client),
         this.$emit("create")

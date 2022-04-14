@@ -8,7 +8,7 @@
     <input v-model="user.password" :class="(v$.user.password.$error) ? 'invalid':''" type="password" placeholder="password" />
     <div v-if="v$.user.password.$error" class="error">error</div>
     <div v-if="error" v-text="error" class="error"></div>
-    <button class="btn mt-2" v-on:click="saveUser">Зарегистрироваться</button>
+    <button class="btn mt-2" v-on:click="signUpUser">Зарегистрироваться</button>
   </form>
 </template>
 
@@ -42,7 +42,7 @@ export default {
     },
   },
   methods: {
-    async saveUser() {
+    async signUpUser() {
       this.v$.$touch();
       if (this.v$.$errors.length > 0) {
         return

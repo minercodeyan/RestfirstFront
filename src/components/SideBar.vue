@@ -1,21 +1,30 @@
 <template>
   <div class="col s3 sidebar">
     <ul class="ul_sidebar">
-      <li><router-link to="/timetable/2" class="side_item">Расписания</router-link></li>
-      <li><router-link to="/branches" class="side_item">Подразделения</router-link></li>
-      <li><router-link to="/students" class="side_item">Студенты</router-link></li>
-      <li><router-link to="/rating" class="side_item">Рейтинг</router-link></li>
-      <li><router-link to="/info" class="side_item">О университете</router-link></li>
+    <li  v-for="link in links" :key="link.url"
+        :to="link.url">
+      <router-link class="side_item" :to="link.url">{{link.title}}</router-link>
+    </li>
     </ul>
   </div>
 </template>
-
 <script>
 export default {
-  name: "SideBar"
+  name: "SideBar",
+  props:{
+    user: Object
+  },
+  data(){
+    return{
+      links:[
+        {title: 'Главная',url: '/'},
+        {title: 'Расписания',url: '/timetable/1'},
+        {title: 'Подразделения',url: '/lol'},
+        {title: 'Студенты',url: '/lol00'},
+        {title: 'Рейтинг',url: '/rating'},
+        {title: 'О университете',url: '/info'}
+      ]
+    }
+  }
 }
 </script>
-
-<style scoped>
-
-</style>

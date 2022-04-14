@@ -188,3 +188,38 @@ textarea[name="details"] {
 .error {
     color: red;
 }
+
+
+/* students*==========================================================
+ */
+
+/* students=----------------------------------------------------------------------*/
+
+
+.filters{
+    background-color: #80cbc4;;
+    color: black;
+}
+
+.students_board{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: center;
+}
+
+.student{
+    width: 460px;
+    background-color: #e0f2f1;
+    margin: 10px;
+    padding: 15px;
+    border: #80cbc4 solid 1px;
+    display: flex;
+    justify-content: space-between; /* Может быть изменено */
+}
+
+.home_content>ul>li{
+    margin-left: 25px;
+    list-style-type: circle;
+}
+

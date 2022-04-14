@@ -1,7 +1,9 @@
 import instance from "@/api/instance";
 import  clientsModule from "@/api/clientsApi"
 import authService from "@/api/MyServices/authService";
+import timeTableService from "@/api/MyServices/TimeTableService";
 export default {
     clientS: clientsModule(instance),
-    auth: authService(instance)
+    auth: authService(instance),
+    timetable: timeTableService(instance)
 }

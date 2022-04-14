@@ -30,12 +30,9 @@ export default {
   methods:{
     async logout(){
       await indexApi.auth.logout()
+      this.$emit('cre')
       await router.push({ name: 'login'})
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -1,9 +1,11 @@
 import {createRouter, createWebHistory} from "vue-router";
 import AuthPage from "@/pages/AuthPage";
 import HomePage from "@/pages/HomePage";
-import TimeTablePage from "@/pages/TimeTablePage";
 import ClientPage from "@/pages/ClientPage";
 import ProfilePage from "@/pages/ProfilePage";
+
+import TimeTablePage from "@/pages/TimeTablePage";
+import InfoPage from "@/pages/InfoPage";
 const routes = [
     {
         path: "/",
@@ -40,6 +42,11 @@ const routes = [
         name: "profile-main",
         meta:{layout:"main"},
         component: ProfilePage
+    },
+    {
+        path: "/info",
+        name: "info",
+        component: InfoPage
     },
 ];
 
