@@ -1,14 +1,14 @@
 <template>
   <div class="profile_aside teal lighten-4">
-    <a href="#">
+    <router-link :to="'/profile/main'">
       <div class="profile_aside_item active_link">Профиль</div>
-    </a>
+    </router-link>
     <a href="#">
       <div class="profile_aside_item">Зачетка</div>
     </a>
-    <a href="#">
+    <router-link :to="'/profile/study'">
       <div class="profile_aside_item">Учеба</div>
-    </a>
+    </router-link>
     <a href="#">
       <div class="profile_aside_item">Рейтинг</div>
     </a>
@@ -27,6 +27,7 @@ import router from "@/router";
 
 export default {
   name: "ProfileAside",
+
   methods:{
     async logout(){
       await indexApi.auth.logout()

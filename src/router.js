@@ -3,9 +3,11 @@ import AuthPage from "@/pages/AuthPage";
 import HomePage from "@/pages/HomePage";
 import ClientPage from "@/pages/ClientPage";
 import ProfilePage from "@/pages/ProfilePage";
-
 import TimeTablePage from "@/pages/TimeTablePage";
 import InfoPage from "@/pages/InfoPage";
+import ProfileMain from "@/pages/profileViews/ProfileMain";
+import ProfileStudy from "@/pages/profileViews/ProfileStudy";
+
 const routes = [
     {
         path: "/",
@@ -38,8 +40,26 @@ const routes = [
         component: ClientPage
     },
     {
-        path: "/profile/main",
-        name: "profile-main",
+        path: "/profile/",
+        name: "profile",
+        meta:{layout:"main"},
+        component: ProfilePage,
+        children: [
+            {
+                path: "main",
+                name: "profile-main",
+                component: ProfileMain
+            },
+            {
+                path: "study",
+                name: "profile-stud",
+                component: ProfileStudy
+            },
+            ]
+    },
+    {
+        path: "/profile/study",
+        name: "profile-study",
         meta:{layout:"main"},
         component: ProfilePage
     },
