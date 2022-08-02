@@ -1,12 +1,13 @@
 import {createRouter, createWebHistory} from "vue-router";
 import AuthPage from "@/pages/AuthPage";
 import HomePage from "@/pages/HomePage";
-import ClientPage from "@/pages/ClientPage";
+import StudentPage from "@/pages/StudentPage";
 import ProfilePage from "@/pages/ProfilePage";
 import TimeTablePage from "@/pages/TimeTablePage";
 import InfoPage from "@/pages/InfoPage";
 import ProfileMain from "@/pages/profileViews/ProfileMain";
 import ProfileStudy from "@/pages/profileViews/ProfileStudy";
+import GroupPage from "@/pages/GroupPage";
 
 const routes = [
     {
@@ -34,10 +35,10 @@ const routes = [
         component: AuthPage
     },
     {
-        path: "/lol",
-        name: "lol",
+        path: "/students",
+        name: "students",
         meta:{layout:"main"},
-        component: ClientPage
+        component: StudentPage
     },
     {
         path: "/profile/",
@@ -58,10 +59,10 @@ const routes = [
             ]
     },
     {
-        path: "/profile/study",
-        name: "profile-study",
+        path: "/group",
         meta:{layout:"main"},
-        component: ProfilePage
+        name: "profile-group",
+        component: GroupPage
     },
     {
         path: "/info",

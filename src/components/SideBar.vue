@@ -20,7 +20,7 @@ export default {
         {title: 'Главная',url: '/'},
         {title: 'Расписания',url: '/timetable/1'},
         {title: 'Подразделения',url: '/lol'},
-        {title: 'Студенты',url: '/lol00'},
+        {title: 'Студенты',url: '/students'},
         {title: 'Рейтинг',url: '/rating'},
         {title: 'О университете',url: '/info'}
       ]

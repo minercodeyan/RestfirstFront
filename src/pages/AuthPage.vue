@@ -14,7 +14,7 @@ import router from "@/router";
 export default {
   name: "RegPage",
   components: {LoginForm, RegistrationForm},
-  created() {
+  mounted() {
     if(localStorage.getItem('user')){
       router.push({ name: 'profile-main'});
     }

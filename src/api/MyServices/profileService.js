@@ -1,4 +1,3 @@
-
 export default function (instance){
     return{
         sendMail(email){

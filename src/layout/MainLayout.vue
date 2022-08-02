@@ -18,11 +18,11 @@ export default {
   },
   methods:{
      forceRerender() {
-      this.user=JSON.parse(localStorage.getItem('user'))
+     this.user=JSON.parse(localStorage.getItem('user'))
     }
   },
   mounted() {
-    this.forceRerender()
+    this.user=JSON.parse(localStorage.getItem('user'))
   }
 }
 </script>

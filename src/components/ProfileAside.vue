@@ -12,9 +12,9 @@
     <a href="#">
       <div class="profile_aside_item">Рейтинг</div>
     </a>
-    <a href="#">
+    <router-link :to="'/group'">
       <div class="profile_aside_item">Группа</div>
-    </a>
+    </router-link>
     <div @click="logout">
       <div class="profile_aside_item">Выйти</div>
     </div>

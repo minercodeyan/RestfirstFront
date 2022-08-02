@@ -25,7 +25,12 @@ body {
     margin-left: 0px;
     padding: 0px;
     height: 95vh;
-    border-right: solid black;
+    border-right: solid #00897b;
+}
+
+.burger{
+    margin-left: 15px;
+    display: none;
 }
 
 .ul_sidebar {
@@ -84,7 +89,23 @@ textarea::placeholder {
     .row .col.s9{
         width: 100%;
     }
+    .burger{
+        display: block;
+    }
+    .brand-logo{
+        margin-left: 50px;
+    }
 }
+
+
+@media (max-width: 1000px) {
+    .no_display{
+        display: none;
+    }
+}
+
+
+
 
 /* home============================================================================*/
 
@@ -204,7 +225,7 @@ textarea[name="details"] {
 .students_board{
     display: flex;
     flex-wrap: wrap;
-    margin: 10px;
+    margin: 40px 10px;
     justify-content: center;
 }
 
@@ -217,6 +238,7 @@ textarea[name="details"] {
     display: flex;
     justify-content: space-between; /* Может быть изменено */
 }
+
 
 .home_content>ul>li{
     margin-left: 25px;

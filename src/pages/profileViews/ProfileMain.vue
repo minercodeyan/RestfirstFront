@@ -14,6 +14,16 @@
 
 <script>
 export default {
-  name: "ProfileMain"
+  name: "ProfileMain",
+  data() {
+    return {
+      profileUser: {
+        username: ''
+      }
+    }
+  },
+  mounted() {
+
+  }
 }
 </script>
