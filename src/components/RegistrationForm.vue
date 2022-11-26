@@ -29,7 +29,7 @@ export default {
         username: '',
         email: '',
         password: '',
-        role: []
+        role: null
       },
       error: ''
     }
@@ -49,8 +49,8 @@ export default {
       }
       this.v$.$reset()
       try {
-        await indexApi.auth.signUp(this.user).then(response=>console.log(response.data))
-        await router.push({ name: 'Home' })
+        await indexApi.auth.signUp(this.user)
+            .then(router.push({ name: 'Home' }))
       }
       catch(error) {
         this.error=error.response.data

@@ -16,9 +16,12 @@ body {
     padding-left: 30px;
 }
 
-.ul_sidebar>li:hover {
+.side_item:hover,
+.side_item:focus {
     text-decoration: underline black;
+    width: 100%;
 }
+
 
 .sidebar {
     margin-top: 25px;
@@ -97,10 +100,18 @@ textarea::placeholder {
     }
 }
 
-
 @media (max-width: 1000px) {
     .no_display{
         display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards{
+        display: none;
+    }
+    .profile{
+        margin: 20px 10px;
     }
 }
 
@@ -108,6 +119,14 @@ textarea::placeholder {
 
 
 /* home============================================================================*/
+
+.home{
+    display: flex;
+    flex-direction: row;
+}
+.cards{
+    width: 30%;
+}
 
 .home_content {
     margin: 50px;
@@ -147,12 +166,14 @@ textarea::placeholder {
 
 .profile_aside{
     width: 20%;
+    min-width: 125px;
     height: 300px;
 }
 
 .profile_main{
     width: 80%;
     padding: 30px;
+    min-width: 280px;
     margin: 0px 20px;
 }
 
@@ -172,14 +193,11 @@ textarea::placeholder {
     background-color: #80cbc4;;
 }
 
-.active_link{
+.active_link div{
     background-color: #4db6ac;
     border-left: black solid;
 }
 
-.active_link:hover{
-    background-color: #4db6ac;
-}
 
 textarea[name="details"] {
     height: 60px;

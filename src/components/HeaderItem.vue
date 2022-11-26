@@ -2,7 +2,7 @@
   <nav class="teal darken-1">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Logo</a>
-      <div class="burger"><i class="material-icons">menu</i></div>
+      <aside-drobdown></aside-drobdown>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><router-link v-if="user" to="/profile/main" v-text="user.username"></router-link>
             <router-link v-else to="/login">Войти</router-link>
@@ -12,12 +12,13 @@
   </nav>
 </template>
 <script>
-
+import AsideDrobdown from "@/components/UI/AsideDrobdown";
 export default {
   name: "HeaderItem",
+  components: {AsideDrobdown},
   props:{
       user : Object
-    }
+    },
 
 }
 </script>

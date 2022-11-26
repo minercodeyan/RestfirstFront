@@ -4,7 +4,7 @@
       <student-filter @search="searchStudents"></student-filter>
     </div>
     <student-list v-if="loading===false" :students="filteredStudents"></student-list>
-    <uni-spinner class="spinner-m" :is-loading="loading"></uni-spinner>
+    <uni-spinner :is-loading="loading"></uni-spinner>
   </div>
 </template>
 <script>
@@ -53,8 +53,5 @@ export default {
 .content {
   padding: 50px;
 }
-.spinner-m{
-  margin: 200px auto;
-  width: 40%;
-}
+
 </style>

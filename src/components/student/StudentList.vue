@@ -1,5 +1,7 @@
 <template>
   <div class="students_board">
+    <pagination >
+    </pagination>
     <template v-if="students.length">
       <student-item v-for="student in students" :student="student" :key="student.id" ></student-item>
     </template>
@@ -18,6 +20,9 @@ export default {
       type: Array,
     }
   },
+  methods:{
+    onClickHandler(){}
+  }
 
 }
 </script>

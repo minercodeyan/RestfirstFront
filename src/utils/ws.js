@@ -1,12 +1,12 @@
 
-
-var stompClient = null;
-const handlers = []
 import SockJS from 'sockjs-client'
 import {Stomp} from "@stomp/stompjs";
 
+var stompClient = null;
+
+const handlers=[]
+
 export function connect() {
-   // var url = '/gs-guide-websocket';
     const socket = new SockJS('http://localhost:9090/gs-guide-websocket');
     stompClient = Stomp.over(socket)
     stompClient.connect({}, frame=>{
@@ -18,7 +18,7 @@ export function connect() {
 }
 
 export function addHandler(handler){
-    handler.push(handler)
+   handlers.push(handler)
 }
 
 

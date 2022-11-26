@@ -8,6 +8,7 @@ import InfoPage from "@/pages/InfoPage";
 import ProfileMain from "@/pages/profileViews/ProfileMain";
 import ProfileStudy from "@/pages/profileViews/ProfileStudy";
 import GroupPage from "@/pages/GroupPage";
+import AdminPage from "@/pages/adminLayout/AdminPage";
 
 const routes = [
     {
@@ -66,8 +67,15 @@ const routes = [
     },
     {
         path: "/info",
+        meta:{layout:"main"},
         name: "info",
         component: InfoPage
+    },
+    {
+        path: "/admin",
+        meta:{layout:"admin"},
+        name: "admin-page",
+        component: AdminPage
     },
 ];
 

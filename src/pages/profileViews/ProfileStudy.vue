@@ -1,8 +1,8 @@
 <template>
   <div class="profile_main teal lighten-4">
     <div style="margin-bottom: 10px"><b>Справки</b></div>
-    <button class="btn" v-on:click="spravka">Заказать справку</button>
-    <modal-university v-model:is-open="showModal" header-title="Заказать справку">
+    <button class="btn" @click="spravka">Заказать справку</button>
+    <modal-university :is-open="showModal" header-title="Заказать справку">
       <select-item @updateOption="updateFirstOption"
                    :option-list="typeOfPet"
                    label="Тип печати"
@@ -16,6 +16,7 @@
         <textarea type="text" v-model="comment" class="materialize-textarea"></textarea>
       </div>
       <button class="btn" v-on:click="sendEmail" :disabled="isDisabled">Заказать справку</button>
+      <button class="btn" style="margin-left: 10px" v-on:click="close">Отмена</button>
       <div class="error" v-if="error">Вы не ввели все данные</div>
     </modal-university>
   </div>
@@ -63,6 +64,9 @@ export default {
     },
     spravka(){
       this.showModal=true;
+    },
+    close(){
+      this.showModal =false
     },
     async sendEmail(){
       this.email.subject=null

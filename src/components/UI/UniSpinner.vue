@@ -1,5 +1,5 @@
 <template>
-  <div class="progress" v-show="isLoading">
+  <div class="progress spinner-m" v-show="isLoading">
     <div class="indeterminate"></div>
   </div>
 </template>
@@ -17,5 +17,8 @@ export default {
 </script>
 
 <style scoped>
-
+.spinner-m{
+  margin: 20% auto;
+  width: 40%;
+}
 </style>

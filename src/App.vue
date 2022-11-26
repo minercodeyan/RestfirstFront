@@ -1,18 +1,20 @@
 <template>
-<component :is="layout">
-  <router-view/>
-</component>
+  <component :is="layout">
+    <router-view/>
+  </component>
 </template>
 <script>
 import MainLayout from "@/layout/MainLayout";
+import AdminLayout from "@/layout/AdminLayout";
+
 export default {
   name: 'App',
   computed: {
-    layout(){
-     return 'main-layout'
+    layout() {
+      return (this.$route.meta.layout || 'main') + '-layout'
     }
   },
-  components:{MainLayout},
+  components: {MainLayout, AdminLayout},
 }
 </script>
 

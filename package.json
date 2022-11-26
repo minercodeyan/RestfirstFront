@@ -16,7 +16,7 @@
     "materialize-css": "^1.0.0-rc.2",
     "sockjs-client": "^1.6.1",
     "vue": "^3.2.31",
-    "vue-awesome-paginate": "^1.0.0",
+    "vue-pagination-2": "^3.1.0",
     "vue-resource": "^1.5.3",
     "vue-router": "^4.0.14",
     "vuelidate": "^0.7.7",

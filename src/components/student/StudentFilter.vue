@@ -1,7 +1,6 @@
 <template>
     <div class="col s6">
-      <input v-model="key" type="text" placeholder="Введите имя студента">
-
+      <input ref="key" type="text" placeholder="Введите имя студента">
       <button class="btn" v-on:click="search">Найти студента</button>
     </div>
     <div class="col s6 filters">
@@ -21,6 +20,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: "StudentFilter",
   emits: ["search"],
@@ -31,7 +32,7 @@ export default {
   },
   methods:{
     search(){
-      this.$emit("search",{key: this.key})
+      this.$emit("search",{key: this.$refs.key.value})
     }
   }
 }

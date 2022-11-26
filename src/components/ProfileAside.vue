@@ -1,19 +1,11 @@
 <template>
   <div class="profile_aside teal lighten-4">
-    <router-link :to="'/profile/main'">
-      <div class="profile_aside_item active_link">Профиль</div>
-    </router-link>
-    <a href="#">
-      <div class="profile_aside_item">Зачетка</div>
-    </a>
-    <router-link :to="'/profile/study'">
-      <div class="profile_aside_item">Учеба</div>
-    </router-link>
-    <a href="#">
-      <div class="profile_aside_item">Рейтинг</div>
-    </a>
-    <router-link :to="'/group'">
-      <div class="profile_aside_item">Группа</div>
+    <router-link v-for="link in links"
+                 :key="link.url"
+                 :to="link.url"
+                 active-class="active_link"
+                 >
+      <div class="profile_aside_item" >{{link.title}}</div>
     </router-link>
     <div @click="logout">
       <div class="profile_aside_item">Выйти</div>
@@ -27,6 +19,17 @@ import router from "@/router";
 
 export default {
   name: "ProfileAside",
+  data(){
+    return{
+      links:[
+        {title: 'Профиль',url: '/profile/main'},
+        {title: 'Зачетка',url: '/profile/dock'},
+        {title: 'Учеба',url: '/profile/study'},
+        {title: 'Рейтинг',url: '/profile/new'},
+        {title: 'Группа',url: '/group'}
+      ]
+    }
+  },
 
   methods:{
     async logout(){
@@ -37,3 +40,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+</style>
