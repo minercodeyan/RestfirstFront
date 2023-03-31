@@ -6,11 +6,11 @@
       <select-item @updateOption="updateFirstOption"
                    :option-list="typeOfPet"
                    label="Тип печати"
-                   default-value="выберете..."></select-item>
+                   default-value="выберите..."></select-item>
       <select-item @updateOption="updateSecondOption"
                    :option-list="placeList"
                    label="Место предьявления"
-                   default-value="выберете..."></select-item>
+                   default-value="выберите..."></select-item>
       <div class="comment">
         <label>Комментарий</label>
         <textarea type="text" v-model="comment" class="materialize-textarea"></textarea>

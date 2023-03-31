@@ -19,10 +19,10 @@ export default {
       links:[
         {title: 'Главная',url: '/'},
         {title: 'Расписания',url: '/timetable/1'},
-        {title: 'Подразделения',url: '/lol'},
         {title: 'Студенты',url: '/students'},
-        {title: 'Рейтинг',url: '/rating'},
-        {title: 'О университете',url: '/info'}
+        {title: 'Предметы',url: '/subjects'},
+        {title: 'Тесты',url: '/tests'},
+        {title: 'О системе',url: '/info'}
       ]
     }
   }

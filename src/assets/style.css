@@ -8,6 +8,14 @@ body {
     vertical-align: baseline;
 }
 
+.rating_personal{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-bottom: 20px;
+    background: #e0f2f1;
+    font-weight: bold;
+}
 
 .side_item {
     text-decoration: none;

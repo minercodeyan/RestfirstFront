@@ -6,7 +6,7 @@ export default function (instance){
             return instance.post("/profile/email",email,{ headers: addAuthHeader()})
         },
         getAllMessages(group_id){
-            return instance.get("/profile/messages?groupId="+group_id,{ headers: addAuthHeader()})
+            return instance.get("/profile/messages?groupNumber="+group_id,{ headers: addAuthHeader()})
         }
     }
 

@@ -76,11 +76,12 @@ export default {
     if (!this.user) {
       router.push({name: 'login'});
     } else {
+      console.log(this.user.groupUniNumber);
       await indexApi.group.getUserGroup(this.user.groupUniNumber)
           .then(response => {
             this.userGroup = response.data
           })
-      await indexApi.profile.getAllMessages(this.userGroup.id)
+      await indexApi.profile.getAllMessages(this.user.groupUniNumber)
           .then(response => {
             this.msgList = response.data
           })

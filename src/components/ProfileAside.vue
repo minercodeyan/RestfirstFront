@@ -23,9 +23,8 @@ export default {
     return{
       links:[
         {title: 'Профиль',url: '/profile/main'},
-        {title: 'Зачетка',url: '/profile/dock'},
         {title: 'Учеба',url: '/profile/study'},
-        {title: 'Рейтинг',url: '/profile/new'},
+        {title: 'Рейтинг',url: '/profile/rating'},
         {title: 'Группа',url: '/group'}
       ]
     }
