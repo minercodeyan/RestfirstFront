@@ -4,7 +4,7 @@ module.exports = defineConfig({
   devServer: {
     port: 8002,
     allowedHosts: ['localhost:9090'],
-    webSocketServer: "sockjs"
+    //
   },
 
 })

@@ -1,7 +1,7 @@
 <template>
     <div class="col s6">
-      <input ref="key" type="text" placeholder="Введите имя студента">
-      <button class="btn" v-on:click="search">Найти студента</button>
+      <input ref="key" type="text" placeholder="Введите имя">
+      <button class="btn" v-on:click="search">Найти</button>
     </div>
     <div class="col s6 filters">
       <p>

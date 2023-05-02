@@ -4,7 +4,7 @@
       <a href="#" class="brand-logo">Logo</a>
       <aside-drobdown></aside-drobdown>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><router-link v-if="user" to="/profile/main" v-text="user.username"></router-link>
+        <li><router-link v-if="user" to="/profile/main" v-text="user.user.name"></router-link>
             <router-link v-else to="/login">Войти</router-link>
         </li>
       </ul>

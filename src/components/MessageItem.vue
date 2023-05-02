@@ -1,8 +1,8 @@
 <template>
   <div class="message_item" :class="isOwner?'':'my_msg'">
     <div><b>{{message.user.id}}</b></div>
-    <div>{{message.description}}</div>
-    <div class="message_date" >{{new Date(message.localDate).toDateString()}}</div>
+    <div>{{message.text}}</div>
+    <div class="message_date" >{{message.localDate}}</div>
   </div>
 </template>
 

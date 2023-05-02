@@ -1,13 +1,12 @@
 <template>
   <h2>Регистрация</h2>
   <form class="reg_form" method="post" @submit.prevent>
-    <input v-model="user.username" :class="(v$.user.username.$error) ? 'invalid':''" type="text" placeholder="login" />
-    <span v-if="v$.user.password.$error"  class="error">error</span>
-    <input v-model="user.email" :class="(v$.user.email.$error) ? 'invalid':''" type="email" placeholder="My@Email" />
-    <span v-if="v$.user.password.$error"  class="error">error</span>
-    <input v-model="user.password" :class="(v$.user.password.$error) ? 'invalid':''" type="password" placeholder="password" />
-    <div v-if="v$.user.password.$error" class="error">error</div>
-    <div v-if="error" v-text="error" class="error"></div>
+    <input v-model="user.name" :class="(error.name) ? 'invalid':''" type="text" placeholder="login" />
+    <div v-if="error" class="error" v-text="error.name[0]"></div>
+    <input v-model="user.email" :class="(error.email) ? 'invalid':''" type="email" placeholder="My@Email" />
+    <div v-if="error" class="error" v-text="error.email[0]"></div>
+    <input v-model="user.password" :class="(error.password) ? 'invalid':''" type="password" placeholder="password" />
+    <div v-if="error" class="error" v-text="error.password[0]"></div>
     <button class="btn mt-2" v-on:click="signUpUser">Зарегистрироваться</button>
   </form>
 </template>
@@ -36,24 +35,20 @@ export default {
   },
   validations: {
     user: {
-      username: {required, minLength: minLength(3)},
+      name: {required, minLength: minLength(3)},
       email: {required, minLength: minLength(3)},
       password: {required}
     },
   },
   methods: {
     async signUpUser() {
-      this.v$.$touch();
-      if (this.v$.$errors.length > 0) {
-        return
-      }
-      this.v$.$reset()
-      try {
-        await indexApi.auth.signUp(this.user)
-            .then(router.push({ name: 'Home' }))
-      }
-      catch(error) {
-        this.error=error.response.data
+      await indexApi.auth.signUp(this.user)
+          .catch(error=>{
+            this.error = error.response.data;
+            console.log(this.error)
+      })
+      if(!this.error){
+        router.push('home')
       }
     }
   }

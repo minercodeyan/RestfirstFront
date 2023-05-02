@@ -8,6 +8,7 @@
 <script>
 import HeaderItem from "@/components/HeaderItem";
 import SideBar from "@/components/SideBar";
+import {getUserName} from "@/common/userDataHelper";
 export default {
   name: "MainLayout",
   components: {HeaderItem,SideBar},
@@ -18,11 +19,11 @@ export default {
   },
   methods:{
      forceRerender() {
-     this.user=JSON.parse(localStorage.getItem('user'))
+     this.user=getUserName();
     }
   },
   mounted() {
-    this.user=JSON.parse(localStorage.getItem('user'))
+    this.user=getUserName();
   }
 }
 </script>

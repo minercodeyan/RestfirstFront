@@ -4,10 +4,8 @@ import App from './App.vue'
 import router from "@/router";
 import store from "@/store/storeIndex";
 import Pagination from 'vue-pagination-2';
-import {connect} from "@/utils/ws";
 import 'materialize-css/dist/js/materialize.min'
-
-connect()
+import './api/MyServices/bootstrapService'
 
 const app = createApp(App);
 

@@ -1,24 +1,46 @@
 <template>
   <div class="profile_main teal lighten-4">
-    <div style="margin-bottom: 10px"><b>Справки</b></div>
-    <button class="btn" @click="spravka">Заказать справку</button>
-    <modal-university :is-open="showModal" header-title="Заказать справку">
-      <select-item @updateOption="updateFirstOption"
-                   :option-list="typeOfPet"
-                   label="Тип печати"
-                   default-value="выберите..."></select-item>
-      <select-item @updateOption="updateSecondOption"
-                   :option-list="placeList"
-                   label="Место предьявления"
-                   default-value="выберите..."></select-item>
-      <div class="comment">
-        <label>Комментарий</label>
-        <textarea type="text" v-model="comment" class="materialize-textarea"></textarea>
-      </div>
-      <button class="btn" v-on:click="sendEmail" :disabled="isDisabled">Заказать справку</button>
-      <button class="btn" style="margin-left: 10px" v-on:click="close">Отмена</button>
-      <div class="error" v-if="error">Вы не ввели все данные</div>
-    </modal-university>
+    <div style="margin-bottom: 10px"><b>Учеба</b></div>
+    <div>
+      <button class="btn" @click="spravka">Заказать консультацию</button>
+      <modal-university :is-open="showModal" header-title="Заказать справку">
+        <select-item @updateOption="updateFirstOption"
+                     :option-list="typeOfPet"
+                     label="Тип печати"
+                     default-value="выберите..."></select-item>
+        <select-item @updateOption="updateSecondOption"
+                     :option-list="placeList"
+                     label="Место предьявления"
+                     default-value="выберите..."></select-item>
+        <div class="comment">
+          <label>Комментарий</label>
+          <textarea type="text" v-model="comment" class="materialize-textarea"></textarea>
+        </div>
+        <button class="btn" v-on:click="sendEmail" :disabled="isDisabled">Заказать справку</button>
+        <button class="btn" style="margin-left: 10px" v-on:click="close">Отмена</button>
+        <div class="error" v-if="error">Вы не ввели все данные</div>
+      </modal-university>
+    </div>
+    <div class="mt-2">
+      <button class="btn" @click="teacher">Записаться на учебу</button>
+      <modal-university :is-open="showModal" header-title="Заказать справку">
+        <select-item @updateOption="updateFirstOption"
+                     :option-list="typeOfPet"
+                     label="Тип печати"
+                     default-value="выберите..."></select-item>
+        <select-item @updateOption="updateSecondOption"
+                     :option-list="placeList"
+                     label="Место предьявления"
+                     default-value="выберите..."></select-item>
+        <div class="comment">
+          <label>Комментарий</label>
+          <textarea type="text" v-model="comment" class="materialize-textarea"></textarea>
+        </div>
+        <button class="btn" v-on:click="sendEmail" :disabled="isDisabled">Заказать справку</button>
+        <button class="btn" style="margin-left: 10px" v-on:click="close">Отмена</button>
+        <div class="error" v-if="error">Вы не ввели все данные</div>
+      </modal-university>
+    </div>
   </div>
 </template>
 

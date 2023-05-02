@@ -1,12 +1,12 @@
 export default function (instance) {
     return {
         signUp(user) {
-            return instance.post('/auth/signup', user)
+            return instance.post('/auth/register', user)
         },
         signIn(user) {
-            return instance.post('/auth/signin', user)
+            return instance.post('/auth/login', user)
                 .then(response => {
-                    if (response.data.token) {
+                    if (response.data.accessToken) {
                         localStorage.setItem('user', JSON.stringify(response.data))
                         return response.data
                     }

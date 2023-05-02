@@ -37,10 +37,8 @@
 <script>
 import indexApi from "@/api/indexApi";
 import GroupMembersList from "@/components/group/GroupMembersList";
-import {addHandler, sendMessage} from "@/utils/ws";
 import router from "@/router";
 import MessageItem from "@/components/MessageItem";
-
 
 
 export default {
@@ -54,21 +52,25 @@ export default {
       text: '',
       msg: {
         id: null,
-        description: '',
-        creator: null,
-        localDate: null,
+        text: '',
       }
     }
   },
   methods: {
-    saveMsg() {
-      this.msg.description = this.text
-      this.msg.creator = this.user.id
+    async saveMsg() {
+      this.msg.text = this.text
       if (this.text) {
-        sendMessage(this.msg)
+        await indexApi.chat.sendMessage(this.msg)
         this.$refs.chat.scrollTop = this.$refs.chat.scrollHeight+100
         this.text=''
+
+        window.Echo.private('chat').listen('MessageSent',(e)=>{
+          console.log(e)
+          this.msgList.push(e.data)
+        })
+
       }
+
     }
   },
   async created(){
@@ -76,23 +78,22 @@ export default {
     if (!this.user) {
       router.push({name: 'login'});
     } else {
-      console.log(this.user.groupUniNumber);
-      await indexApi.group.getUserGroup(this.user.groupUniNumber)
-          .then(response => {
-            this.userGroup = response.data
-          })
-      await indexApi.profile.getAllMessages(this.user.groupUniNumber)
+      await indexApi.chat.getGroupChat()
           .then(response => {
             this.msgList = response.data
           })
           .catch(error => console.log(error))
+      await indexApi.group.getUserGroup(this.user.groupUniNumber)
+          .then(response => {
+            this.userGroup = response.data
+          })
       this.$refs.chat.scrollTop = this.$refs.chat.scrollHeight
     }
   },
   mounted() {
-    addHandler(data => {
-      this.msgList.push(data)
-    })
+   // addHandler(data => {
+  //    this.msgList.push(data)
+  //  })
   }
 }
 </script>

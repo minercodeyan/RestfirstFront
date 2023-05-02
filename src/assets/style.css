@@ -88,6 +88,7 @@ textarea::placeholder {
 
 .reg_form {
     padding: 0px 100px;
+    width: 650px;
 }
 
 @media (max-width: 1200px) {
