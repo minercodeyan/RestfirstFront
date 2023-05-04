@@ -7,7 +7,7 @@
            :class="(v$.client.surname.$error) ? 'invalid':''">
     <input v-model="client.patronymic" type="text" placeholder="что-то">
     <input v-model="client.dateOfBirth" type="date" placeholder="дата рождения">
-    <button class="btn" id="btnDrop" v-on:click="save">lol</button>
+    <button class="btn" id="btnDrop" v-on:click="save">сохранить</button>
   </div>
 </template>
 <script>

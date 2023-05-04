@@ -11,7 +11,7 @@
               <message-item v-for="msg in msgList"
                             :key="msg.id"
                             :message="msg"
-                            :is-owner="msg.user.id===user.id"
+                            :is-owner="msg.user.id===user.user.id"
               ></message-item>
             </div>
             <div class="chat_input">
@@ -63,12 +63,6 @@ export default {
         await indexApi.chat.sendMessage(this.msg)
         this.$refs.chat.scrollTop = this.$refs.chat.scrollHeight+100
         this.text=''
-
-        window.Echo.private('chat').listen('MessageSent',(e)=>{
-          console.log(e)
-          this.msgList.push(e.data)
-        })
-
       }
 
     }
@@ -88,12 +82,13 @@ export default {
             this.userGroup = response.data
           })
       this.$refs.chat.scrollTop = this.$refs.chat.scrollHeight
+      console.log(this.msgList)
     }
   },
   mounted() {
-   // addHandler(data => {
-  //    this.msgList.push(data)
-  //  })
+    window.Echo.private('chat').listen('MessageSend',(e)=>{
+      this.msgList.push(e.message)
+    })
   }
 }
 </script>

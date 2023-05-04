@@ -1,6 +1,6 @@
 <template>
   <div class="message_item" :class="isOwner?'':'my_msg'">
-    <div><b>{{message.user.id}}</b></div>
+    <div><b>{{message.user.name}}</b></div>
     <div>{{message.text}}</div>
     <div class="message_date" >{{message.localDate}}</div>
   </div>

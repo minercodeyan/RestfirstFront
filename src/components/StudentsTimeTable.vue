@@ -3,11 +3,8 @@
     <thead>
     <tr>
       <th></th>
-      <th>Понедельник</th>
-      <th>Вторник</th>
-      <th>Среда</th>
-      <th>Четверг</th>
-      <th>Пятница</th>
+      <th v-for="(set) in studentsTimeTable" :key="set.values()">
+      9</th>
     </tr>
     </thead>
     <tbody>
