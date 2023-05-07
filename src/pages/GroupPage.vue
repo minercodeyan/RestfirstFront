@@ -27,7 +27,7 @@
         </div>
         <div class="col s4 no_display">
           <group-members-list :title="'Учасники группы '+userGroup.number"
-                              :members="userGroup.groupMembers"></group-members-list>
+                              :members="userGroup.users"></group-members-list>
         </div>
       </div>
     </div>
@@ -77,7 +77,7 @@ export default {
             this.msgList = response.data
           })
           .catch(error => console.log(error))
-      await indexApi.group.getUserGroup(this.user.groupUniNumber)
+      await indexApi.group.getUserGroup()
           .then(response => {
             this.userGroup = response.data
           })
