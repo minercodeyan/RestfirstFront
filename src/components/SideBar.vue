@@ -20,8 +20,9 @@ export default {
         {title: 'Главная',url: '/'},
         {title: 'Расписания',url: '/timetable/1'},
         {title: 'Студенты',url: '/students'},
-        {title: 'Предметы',url: '/subjects'},
+        {title: 'Курсы',url: '/subjects'},
         {title: 'Тесты',url: '/tests'},
+        {title: 'Оплата',url: '/payment'},
         {title: 'О системе',url: '/info'}
       ]
     }

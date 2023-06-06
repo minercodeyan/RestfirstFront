@@ -1,9 +1,9 @@
 <template>
   <div class="student">
     <div>
-      <img src="img/testbox.png" height="40px" width="40px" alt="img"><span><b>{{student.name}} {{student.surname}}</b></span>
+      <img src="@/assets/minilogo.png" height="40" width="40" alt="img"><span><b>{{student.name}} {{student.surname}}</b></span>
     </div>
-    <div>ИЭФ 3 курс</div>
+    <div>(активен)</div>
   </div>
 </template>
 
